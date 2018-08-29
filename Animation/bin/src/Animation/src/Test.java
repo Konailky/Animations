@@ -1,6 +1,9 @@
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.List;
+import java.util.ArrayList;
+
 import javax.swing.*;
 
 
@@ -25,6 +28,7 @@ final public class Test {
 		private int mouth1 = 200; // first point of the mouth	// ovals? or half circle?
 		private int mouth2 = 315; // second point of the mouth
 		
+
 		
 		
 		
@@ -95,15 +99,9 @@ final public class Test {
 					g.setColor(Color.WHITE);
 					g.fillArc(mouth1,  mouth2,  100,  50, 180, 180);
 				}
-				int i = 0;
 				//Hair
 									//Draw some lines as hair 
-				Color[] c = new Color[i];
-				for (int n = 0;  n < i; n++) {
-					c[n] = new Color((int) Math.sin(n) * 255, (int) Math.sin(n + Math.PI/2) * 255, (int) Math.sin(n + Math.PI) * 255);
-				}
-				g.setColor();
-				
+
 				g.drawLine(250, 100, 250, 60);				
 				g.drawLine(250, 100, 260, 50);				
 				g.drawLine(250, 100, 270, 40);			

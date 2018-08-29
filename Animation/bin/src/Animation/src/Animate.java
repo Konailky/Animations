@@ -53,7 +53,9 @@ final public class Animate {
 						colors.add(new Color(r*255/100, 255, 0));}
 					for(int gre = 0; gre < 100; gre++) {
 						colors.add(new Color(255, gre*255/100, 0));}
-					for(int b = 0; b < 100; b++ )
+					for(int b = 0; b < 100; b++ ) {
+						colors.add(new Color(255, 0, b*255/100));}
+					
 					
 			
         	//White Border
