@@ -74,6 +74,7 @@ final public class Test {
 				g.setColor(new Color(210,180,140) );
 				g.fillRoundRect(facex, facey, 300, 300, 100, 100);
 				
+					
 				//Eye shapes
 				g.setColor(Color.WHITE);
 				g.fillRoundRect(rightEyex, rightEyey, 50, 50, 30, 30);
@@ -85,23 +86,35 @@ final public class Test {
 				g.drawArc(leftEyex, leftEyey, 50, 50, 60, 340);
 				
 				//Mouth
+				if (count % 3 == 0) {
 				g.setColor(Color.WHITE);
 				g.fillArc(mouth1,  mouth2, 100, 50, 0, 180);
-				
+								
+				}
+				else {
+					g.setColor(Color.WHITE);
+					g.fillArc(mouth1,  mouth2,  100,  50, 180, 180);
+				}
+				int i = 0;
 				//Hair
-				g.setColor(Color.WHITE);  	//Draw some lines as hair 
-				g.drawLine(250, 100, 250, 60);
-				g.drawLine(250, 100, 260, 50);
-				g.drawLine(250, 100, 270, 40);
-				g.drawLine(250, 100, 280, 30);
-				g.drawLine(250, 100, 290, 20);
-				g.drawLine(250, 100, 300, 10);
-				g.drawLine(250, 100, 240, 50);
-				g.drawLine(250, 100, 230, 40);
-				g.drawLine(250, 100, 220, 30);
+									//Draw some lines as hair 
+				Color[] c = new Color[i];
+				for (int n = 0;  n < i; n++) {
+					c[n] = new Color((int) Math.sin(n) * 255, (int) Math.sin(n + Math.PI/2) * 255, (int) Math.sin(n + Math.PI) * 255);
+				}
+				g.setColor();
+				
+				g.drawLine(250, 100, 250, 60);				
+				g.drawLine(250, 100, 260, 50);				
+				g.drawLine(250, 100, 270, 40);			
+				g.drawLine(250, 100, 280, 30);			
+				g.drawLine(250, 100, 290, 20);			
+				g.drawLine(250, 100, 300, 10);			
+				g.drawLine(250, 100, 240, 50);				
+				g.drawLine(250, 100, 230, 40);				
+				g.drawLine(250, 100, 220, 30);	
 				g.drawLine(250, 100, 210, 20);
 				g.drawLine(250, 100, 210, 10);
-						
 				
 				// Counter and tears
 				g.setColor(Color.BLUE);
@@ -109,21 +122,24 @@ final public class Test {
 				tearx = tear1x;
 				//Pupils
 				int ran = (int) (Math.random() * 255) + 1;
-				g.setColor(new Color(ran, ran, ran ));
+				int ran2 = (int) (Math.random() * 255) + 1;
+				int ran3 = (int) (Math.random() * 255) + 1;
+				g.setColor(new Color(ran, ran2, ran3 ));
 				g.fillArc(leftEyex, leftEyey, 50, 50, 60, 340);	
 				}
 				else {
 					tearx = tear2x;
 					//Pupils
 					int ran = (int) (Math.random() * 255) + 1;
-					g.setColor(new Color(ran, ran, ran));
+					int ran2 = (int) (Math.random() * 255) + 1;
+					int ran3 = (int) (Math.random() * 255) + 1;
+					g.setColor(new Color(ran, ran2, ran3));
 					g.fillArc(rightEyex, rightEyey, 50, 50, 60, 340);
 				}
 				g.setColor(Color.BLUE);
 				g.fillOval(tearx, teary, 20, 50);
 			}
-			
-					
+							
 			
 		}
 		
@@ -154,7 +170,7 @@ final public class Test {
 		
 		public void moveLoc() {
 			
-				teary += 3;
+				teary += 4;
 				if (teary >= 500 ) {
 					teary = 190;
 					count ++;
