@@ -64,6 +64,22 @@ final public class Test {
 			
 			
 			public void paintComponent(Graphics g) {
+				//Recreating the Rainbow :)
+				List<Color> colors = new ArrayList<Color>(); 
+				for(int r = 0; r < 100; r++) {
+					colors.add(new Color(r*255/100, 255, 0));}
+				for( int gre = 100; gre > 0; gre--) {
+					colors.add(new Color(255, gre*255/100, 0));}
+				for(int b = 0; b < 100; b++) {
+					colors.add(new Color(255, 0, b*255/100));}
+				for( int r = 100; r > 0; r--) {
+					colors.add(new Color(r*255/100, 0, 255));}
+				for( int gre = 0; gre < 100; gre++) {
+					colors.add(new Color(0, gre*255/100, 255));}
+				for( int b = 100; b > 0; b--) {
+					colors.add(new Color(0, 255, b*255/100));
+					colors.add(new Color(0, 255, 0));}
+				
 				//white border
 				g.setColor(Color.WHITE);
 				g.fillRect(0, 0, this.getHeight(), this.getWidth() );
@@ -71,14 +87,15 @@ final public class Test {
 				g.setColor(Color.BLACK);
 				g.fillRect(0, 0, this.getHeight(), this.getWidth() );
 				// inside color
-				g.setColor(Color.BLACK);
-				g.fillRect(0, 0, this.getHeight(), this.getWidth());
+				if(count % 3 == 0) {
+					int ran = (int) (Math.random()*255) + 1;
+					g.setColor(colors.get(ran));
+					g.fillRect(0, 0, this.getHeight(), this.getWidth());}
 				
 				//Face 
 				g.setColor(new Color(210,180,140) );
 				g.fillRoundRect(facex, facey, 300, 300, 100, 100);
-				
-					
+									
 				//Eye shapes
 				g.setColor(Color.WHITE);
 				g.fillRoundRect(rightEyex, rightEyey, 50, 50, 30, 30);
@@ -100,43 +117,33 @@ final public class Test {
 					g.fillArc(mouth1,  mouth2,  100,  50, 180, 180);
 				}
 				//Hair
-									//Draw some lines as hair 
-
-				g.drawLine(250, 100, 250, 60);				
-				g.drawLine(250, 100, 260, 50);				
-				g.drawLine(250, 100, 270, 40);			
-				g.drawLine(250, 100, 280, 30);			
-				g.drawLine(250, 100, 290, 20);			
-				g.drawLine(250, 100, 300, 10);			
-				g.drawLine(250, 100, 240, 50);				
-				g.drawLine(250, 100, 230, 40);				
-				g.drawLine(250, 100, 220, 30);	
-				g.drawLine(250, 100, 210, 20);
-				g.drawLine(250, 100, 210, 10);
+				g.setColor(colors.get(500));
+				for(int range = 150; range < 350; range++) {
+					g.drawLine(range, 100,  range +110,  50);
+					g.drawLine(range, 100, range - 110, 50);
 				
+				
+				}
 				// Counter and tears
-				g.setColor(Color.BLUE);
+				int ran2 = (int)(Math.random()*255) + 1;
 				if (checkCount()) {
-				tearx = tear1x;
-				//Pupils
-				int ran = (int) (Math.random() * 255) + 1;
-				int ran2 = (int) (Math.random() * 255) + 1;
-				int ran3 = (int) (Math.random() * 255) + 1;
-				g.setColor(new Color(ran, ran2, ran3 ));
-				g.fillArc(leftEyex, leftEyey, 50, 50, 60, 340);	
+				tearx = tear1x;	
+				//Left Pupil 
+				g.setColor(Color.BLUE);
+				g.fillArc(leftEyex, leftEyey, 50, 50, 60, 340);
+
 				}
 				else {
 					tearx = tear2x;
-					//Pupils
-					int ran = (int) (Math.random() * 255) + 1;
-					int ran2 = (int) (Math.random() * 255) + 1;
-					int ran3 = (int) (Math.random() * 255) + 1;
-					g.setColor(new Color(ran, ran2, ran3));
+					//Right Pupils 
+					g.setColor(Color.BLUE);
 					g.fillArc(rightEyex, rightEyey, 50, 50, 60, 340);
+		
 				}
 				g.setColor(Color.BLUE);
 				g.fillOval(tearx, teary, 20, 50);
 			}
+			
 							
 			
 		}

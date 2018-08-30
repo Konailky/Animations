@@ -51,21 +51,31 @@ final public class Animate {
 			List<Color> colors = new ArrayList<Color>(); 
 					for(int r = 0; r < 100; r++) {
 						colors.add(new Color(r*255/100, 255, 0));}
-					for(int gre = 0; gre < 100; gre++) {
+					for( int gre = 100; gre > 0; gre--) {
 						colors.add(new Color(255, gre*255/100, 0));}
-					for(int b = 0; b < 100; b++ ) {
+					for(int b = 0; b < 100; b++) {
 						colors.add(new Color(255, 0, b*255/100));}
+					for( int r = 100; r > 0; r--) {
+						colors.add(new Color(r*255/100, 0, 255));}
+					for( int gre = 0; gre < 100; gre++) {
+						colors.add(new Color(0, gre*255/100, 255));}
+					for( int b = 100; b > 0; b--) {
+						colors.add(new Color(0, 255, b*255/100));
+						colors.add(new Color(0, 255, 0));}
+					
+					
+					
 					
 					
 			
         	//White Border
-            g.setColor(Color.BLACK);
+            g.setColor(colors.get(230));
             g.fillRect(0, 0, this.getWidth(), this.getHeight());
             //Black Border
-            g.setColor(Color.BLUE);
+            g.setColor(colors.get(1));
             g.fillRect(3, 3, this.getWidth()-6, this.getHeight()-6);
             //Inside Color
-            g.setColor(Color.BLACK);
+            g.setColor(colors.get(255));
             g.fillRect(6, 6, this.getWidth()-12, this.getHeight()-12);
             
             //Dot
@@ -86,7 +96,7 @@ final public class Animate {
 			g.fillRoundRect(200, 200, 50, 50, 30, 30);
 			g.fillRoundRect(300, 200, 50, 50, 30, 30);
 			//Pupils
-			g.setColor(Color.RED);
+			g.setColor(colors.get(25));
 			g.fillArc(200, 200, 50, 50, 60, 340);
 			g.fillArc(300, 200, 50, 50, 60, 304);				
 			//Pupils outline
