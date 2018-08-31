@@ -117,15 +117,17 @@ final public class Test {
 					g.fillArc(mouth1,  mouth2,  100,  50, 180, 180);
 				}
 				//Hair
-				g.setColor(colors.get(500));
-				for(int range = 150; range < 350; range++) {
-					g.drawLine(range, 100,  range +110,  50);
-					g.drawLine(range, 100, range - 110, 50);
-				
+				if (count % 3 == 0) {
+					int ran = (int)(Math.random()*255) + 1;
+							g.setColor(new Color(ran));
+							for(int range = 150; range < 350; range++) {
+									g.drawLine(range, 100,  range ,  50);
+									g.drawLine(range, 100, range , 50);
+				}
 				
 				}
 				// Counter and tears
-				int ran2 = (int)(Math.random()*255) + 1;
+			
 				if (checkCount()) {
 				tearx = tear1x;	
 				//Left Pupil 
