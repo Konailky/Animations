@@ -32,7 +32,7 @@ final public class Test {
 		
 		
 		
-		private int count = 0; // counter for each tear and tear droppings
+		private int count = 1; // counter for each tear and tear droppings
 		
 		public static void main(String[] args) {
 			// TODO Auto-generated method stub
@@ -90,11 +90,20 @@ final public class Test {
 				if(count % 3 == 0) {
 					int ran = (int) (Math.random()*255) + 1;
 					g.setColor(colors.get(ran));
-					g.fillRect(0, 0, this.getHeight(), this.getWidth());}
+					g.fillRect(0, 0, this.getHeight(), this.getWidth());}					
+			
+				//Pupils
+				if(count % 3 == 0) {
+					int ran = (int) (Math.random() * 255 + 1);
+					g.setColor(colors.get(ran));
+					g.fillArc(rightEyex, rightEyey, 50, 50, 60, 340);				 
+					g.fillArc(leftEyex, leftEyey, 50, 50, 60, 340);
+				}
 				
 				//Face 
 				g.setColor(new Color(210,180,140) );
 				g.fillRoundRect(facex, facey, 300, 300, 100, 100);
+				//g.fill3DRect(facex, facex, 300, 300, true);
 									
 				//Eye shapes
 				g.setColor(Color.WHITE);
@@ -109,37 +118,31 @@ final public class Test {
 				//Mouth
 				if (count % 3 == 0) {
 				g.setColor(Color.WHITE);
-				g.fillArc(mouth1,  mouth2, 100, 50, 0, 180);
+				g.fillArc(mouth1,  mouth2, 100, 70, 0, 180);
 								
 				}
 				else {
 					g.setColor(Color.WHITE);
-					g.fillArc(mouth1,  mouth2,  100,  50, 180, 180);
+					g.fillArc(mouth1 ,  mouth2 -50  ,  100,  70, 180, 180);
 				}
 				//Hair
-				if (count % 3 == 0) {
-					int ran = (int)(Math.random()*255) + 1;
-							g.setColor(new Color(ran));
-							for(int range = 150; range < 350; range++) {
-									g.drawLine(range, 100,  range ,  50);
-									g.drawLine(range, 100, range , 50);
-				}
+				//if (count % 3 == 0) {
+				//	int ran = (int)(Math.random()*255) + 1;
+				//			g.setColor(new Color(ran));
+				//			for(int range = 150; range < 350; range++) {
+				//					g.drawLine(range, 100,  range ,  50);
+				//					g.drawLine(range, 100, range , 50);
+			//	}
 				
-				}
+				//}
 				// Counter and tears
 			
 				if (checkCount()) {
 				tearx = tear1x;	
-				//Left Pupil 
-				g.setColor(Color.BLUE);
-				g.fillArc(leftEyex, leftEyey, 50, 50, 60, 340);
 
 				}
 				else {
 					tearx = tear2x;
-					//Right Pupils 
-					g.setColor(Color.BLUE);
-					g.fillArc(rightEyex, rightEyey, 50, 50, 60, 340);
 		
 				}
 				g.setColor(Color.BLUE);
@@ -184,7 +187,6 @@ final public class Test {
 				}
 					
 		}
-		
-		
+				
 	
 }
